@@ -1,0 +1,139 @@
+html {
+  background-image: linear-gradient(to right, #78a0eb 0%, #6991c7 100%);
+  color: white;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+li {
+  list-style: none;
+}
+
+.indexpage {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.active {
+  color: aqua;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  width: 98vw;
+}
+
+.introduction > img {
+  border-radius: 50%;
+  margin-top: 5vh;
+  border: 2px aqua solid;
+  transform: rotateZ(-10deg);
+}
+
+.introduction > h1 > span {
+  color: aqua;
+}
+
+.contacteermij {
+  text-decoration: underline;
+}
+
+.projects {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 32vw);
+}
+
+.project > img {
+  border-radius: 5%;
+  margin-top: 5vh;
+}
+
+.githublink {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.about {
+  min-width: 300px;
+  width: 400px;
+  margin-left: 12vw;
+  margin-top: 4vh;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 49vw);
+  grid-template-rows: repeat(2, 49vh);
+}
+
+.about > h3 {
+  font-size: 40px;
+}
+
+.about > p {
+  font-size: 20px;
+}
+
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.html {
+  width: 70%;
+  background-color: #04aa6d;
+}
+.css {
+  width: 60%;
+  background-color: #2196f3;
+}
+.js {
+  width: 40%;
+  background-color: #f44336;
+}
+.php {
+  width: 20%;
+  background-color: #808080;
+}
+
+.artiest-video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
