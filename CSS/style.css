@@ -265,3 +265,7 @@ input[type="submit"]:hover {
 hr {
   width: 20vw;
 }
+
+.projectlink {
+  font-size: 14px;
+}

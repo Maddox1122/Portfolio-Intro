@@ -46,13 +46,16 @@ require("../require/require.php");
           $img = $result['IMG'];
           $beschrijving = $result['Beschrijving'];
           $datum = $result['Datum'];
+          $link = $result['link'];
+          $techniek = $result['Technieken'];
 
           $imgBase64 = base64_encode($img);
 
-          echo "      <div class='project'>
-          <img src='data:image/png;base64,$imgBase64' width='500px' />
-          <h3>$naam - $datum</h3>
-          <p>$beschrijving</p>
+          echo "<div class='project'>
+            <img src='data:image/png;base64,$imgBase64' width='500px' />
+            <h3>$naam - $datum</h3>
+            <a href='$link' target='_blank' class='projectlink'>$beschrijving - Go To Site</a>
+            <p>Technieken: $techniek</p>
         </div>";
         }
       }

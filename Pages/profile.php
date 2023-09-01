@@ -9,12 +9,14 @@ if (isset($_POST['voerin'])) {
     $projectName = $_POST['name'];
     $projectBeschrijving = $_POST['beschrijving'];
     $Datum = $_POST['datum'];
+    $link = $_POST['link'];
+    $technieken = $_POST['techniek'];
 
     $fileContent = file_get_contents($_FILES['file-upload']['tmp_name']);
 
     if ($fileContent !== false) {
-        $stmt = $con->prepare("INSERT INTO projects (Naam, IMG, Beschrijving, Datum) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $projectName, $fileContent, $projectBeschrijving, $Datum);
+        $stmt = $con->prepare("INSERT INTO projects (Naam, IMG, Beschrijving, Technieken, Datum, link) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $projectName, $fileContent, $projectBeschrijving, $technieken, $Datum, $link);
 
         if ($stmt->execute()) {
         } else {
@@ -50,11 +52,12 @@ if (isset($_POST['Update'])) {
     $newNaam = $_POST["naam"];
     $newBeschrijving = $_POST["beschrijving"];
     $newDatum = $_POST["datum"];
+    $newLink = $_POST["link"];
+    $newTechniek = $_POST['techniek'];
 
-    $sql = "UPDATE `projects` SET `Naam` = '$newNaam', `Beschrijving` = '$newBeschrijving', `Datum` = '$newDatum' WHERE `ID` = '$updateid'";
+    $sql = "UPDATE `projects` SET `Naam` = '$newNaam', `Beschrijving` = '$newBeschrijving', `Datum` = '$newDatum', `link` = '$newLink', `Technieken` = '$newTechniek' WHERE `ID` = '$updateid'";
 
     if ($con->query($sql) === TRUE) {
-        echo "succes";
     } else {
         echo "Error: " . $con->error;
     }
@@ -112,11 +115,21 @@ $resultupdate = $con->query($selectupdate);
                         <input required="required" type="text" name="datum" placeholder='Project Datum'>
                         <i></i>
                     </div>
+                    <div class="inputbox">
+                        <span>Project Link</span>
+                        <input required="required" type="text" name="link" placeholder='Project Link'>
+                        <i></i>
+                    </div>
+                    <div class="inputbox">
+                        <span>Project Technieken</span>
+                        <input required="required" type="text" name="techniek" placeholder='Project Techniek'>
+                        <i></i>
+                    </div>
                     <div class="file-input-container">
                         <label for="file-upload" class="custom-file-upload">
-                            Choose jpeg a file
+                            Choose a file
                         </label>
-                        <input type="file" name="file-upload" id="file-upload" class="actual-file-input">
+                        <input type="file" name="file-upload" id="file-upload" class="actual-file-input" accept="image/*">
                     </div>
                     <button type='submit' class='btn' name='voerin'>
                         Plaats Project
@@ -153,20 +166,26 @@ $resultupdate = $con->query($selectupdate);
                         <?php
                         if ($resultupdate->num_rows > 0) {
                             while ($row = $resultupdate->fetch_assoc()) {
-                                echo "<option value='" . $row["ID"] . "' data-naam='" . $row["Naam"] . "' data-beschrijving='" . $row["Beschrijving"] . "' data-datum='" . $row["Datum"] . "'>" . $row["Naam"] . "</option>";
+                                echo "<option value='" . $row["ID"] . "' data-naam='" . $row["Naam"] . "' data-beschrijving='" . $row["Beschrijving"] . "' data-datum='" . $row["Datum"] . "' " . "data-link='" . $row['link'] . "'>" . $row["Naam"] . "</option>";
                             }
                         }
                         ?>
                     </select>
                     <br><br>
-                    <label for="seriesnaam">New Naam:</label>
+                    <label for="Naam">New Naam:</label>
                     <input type="text" name="naam" id="naamField">
                     <br><br>
-                    <label for="prijs">New Beschrijving:</label>
+                    <label for="Beschrijving">New Beschrijving:</label>
                     <input type="text" name="beschrijving" id="beschrijvingField">
                     <br><br>
-                    <label for="prijs">New Datum:</label>
+                    <label for="Datum">New Datum:</label>
                     <input type="text" name="datum" id="datumField">
+                    <br><br>
+                    <label for="Link">New Link:</label>
+                    <input type="text" name="link" id="linkField">
+                    <br><br>
+                    <label for="Techniek">New Techniek:</label>
+                    <input type="text" name="techniek" id="techniekField">
                     <br><br>
                     <button type="submit" name='Update' class='btn'>Update</button>
                 </form>
@@ -184,19 +203,23 @@ $resultupdate = $con->query($selectupdate);
         let naamField = document.getElementById("naamField");
         let beschrijvingField = document.getElementById("beschrijvingField");
         let datumField = document.getElementById("datumField");
+        let linkField = document.getElementById("linkField");
 
         if (selectedOption) {
             let naam = selectedOption.getAttribute("data-naam");
             let beschrijving = selectedOption.getAttribute("data-beschrijving");
             let datum = selectedOption.getAttribute("data-datum");
+            let link = selectedOption.getAttribute("data-link");
 
             naamField.value = naam;
             beschrijvingField.value = beschrijving;
             datumField.value = datum;
+            linkField.value = link;
         } else {
             naamField.value = "";
             beschrijvingField.value = "";
             datumField.value = "";
+            linkField.value = "";
         }
     }
 </script>

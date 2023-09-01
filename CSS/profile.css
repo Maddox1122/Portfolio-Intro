@@ -5,8 +5,7 @@ body {
 .admin {
   display: grid;
   grid-template-columns: repeat(2, 48vw);
-  grid-template-rows: repeat(2, 35vh);
-  gap: 2vw;
+  grid-template-rows: repeat(2, 55vh);
 }
 
 .btn {
