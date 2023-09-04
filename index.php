@@ -13,6 +13,8 @@ if (!isset($_SESSION['login'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfilio-Maddox</title>
   <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/backgound.css" />
+  <script src="https://kit.fontawesome.com/15e3ed1574.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="indexpage">
@@ -26,7 +28,7 @@ if (!isset($_SESSION['login'])) {
         <?php if ($_SESSION['login'] == true) { ?>
           <a href="./Pages/profile.php">Admin</a>
         <?php } else { ?>
-          <a href="./Pages/login.php">Login <img style="filter: brightness(0) invert(1);" src="assets/images/login-header.png" alt="" /></a>
+          <a href="./Pages/login.php">Login</a>
         <?php } ?>
       </li>
     </nav>
@@ -37,12 +39,12 @@ if (!isset($_SESSION['login'])) {
       <h4>
         <a class="contacteermij" href="./Pages/contact.php">Contacteer Mij</a>
       </h4>
-      <img src="./IMAGES/89667@glr.jpg" alt="ProfilePicture" width="300px" />
+      <img src="./IMAGES/89667@glr.jpg" alt="ProfilePicture" width="300px" class="bounce-image" />
     </div>
   </main>
-  <footer class="githublink">
-    <a class="github" href="https://github.com/Maddox1122" target="_blank">GitHub</a>
-  </footer>
 </body>
+<script>
+  document.body.classList.add('slide-in');
+</script>
 
 </html>

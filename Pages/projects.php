@@ -9,9 +9,10 @@ require("../require/require.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects</title>
   <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/backgound.css" />
 </head>
 
-<body>
+<body class='project-body'>
   <header>
     <nav>
       <li><a href="../index.php">Home</a></li>
@@ -52,7 +53,7 @@ require("../require/require.php");
           $imgBase64 = base64_encode($img);
 
           echo "<div class='project'>
-            <img src='data:image/png;base64,$imgBase64' width='500px' />
+            <img src='data:image/*;base64,$imgBase64' width='500px' />
             <h3>$naam - $datum</h3>
             <a href='$link' target='_blank' class='projectlink'>$beschrijving - Go To Site</a>
             <p>Technieken: $techniek</p>
@@ -64,9 +65,9 @@ require("../require/require.php");
 
     </section>
   </main>
-  <footer class="githublink">
-    <a class="github" href="https://github.com/Maddox1122" target="_blank">GitHub</a>
-  </footer>
 </body>
+<script>
+  document.body.classList.add('slide-in');
+</script>
 
 </html>

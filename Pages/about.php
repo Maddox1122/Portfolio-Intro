@@ -9,6 +9,7 @@ require("../require/require.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About</title>
   <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/backgound.css" />
 </head>
 
 <body>
@@ -77,10 +78,10 @@ require("../require/require.php");
       <iframe width="600" height="400" src="https://www.youtube.com/embed/H1HdZFgR-aA" title="2Pac - All Eyez On Me" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </section>
   </main>
-  <footer class="githublink">
-    <a class="github" href="https://github.com/Maddox1122" target="_blank">GitHub</a>
-  </footer>
 </body>
 <script src="../Js/about.js"></script>
+<script>
+  document.body.classList.add('slide-in');
+</script>
 
 </html>

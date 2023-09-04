@@ -10,6 +10,7 @@ require("../PHP/contact.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact</title>
   <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/backgound.css" />
 </head>
 
 <body>
@@ -30,14 +31,16 @@ require("../PHP/contact.php");
   </header>
   <main class="contact">
     <section class="contact-info">
-      <h3>Stuur mij een Mail</h3>
-      <hr />
-      <p>Email: maddox.sem.de.rooij@gmail.com</p>
-      <hr />
-      <h3>Bel me</h3>
-      <hr />
-      <p>Telefoon: +31 06 57 78 59 77</p>
-      <hr />
+      <div class='contact-inside'>
+        <h3>Stuur mij een Mail</h3>
+        <hr />
+        <p>Email: maddox.sem.de.rooij@gmail.com</p>
+        <hr />
+        <h3>Bel me</h3>
+        <hr />
+        <p>Telefoon: +31 06 57 78 59 77</p>
+        <hr />
+      </div>
     </section>
     <section class="formulier">
       <h2>Contacteer mij</h2>
@@ -61,8 +64,8 @@ require("../PHP/contact.php");
     </section>
   </main>
 </body>
-<footer class="githublink">
-  <a class="github" href="https://github.com/Maddox1122" target="_blank">GitHub</a>
-</footer>
+<script>
+  document.body.classList.add('slide-in');
+</script>
 
 </html>

@@ -76,6 +76,7 @@ $resultupdate = $con->query($selectupdate);
     <title>Admin</title>
     <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/profile.css" />
+    <link rel="stylesheet" href="../CSS/backgound.css" />
 </head>
 
 <body>
@@ -155,8 +156,6 @@ $resultupdate = $con->query($selectupdate);
                     <button type="submit" name='Delete' class='btn'>Delete</button>
                 </form>
             </div>
-        </section>
-        <section class="update">
             <div class="form-container">
                 <h3>Update a project</h3>
                 <form method="post" enctype="multipart/form-data">
@@ -166,7 +165,7 @@ $resultupdate = $con->query($selectupdate);
                         <?php
                         if ($resultupdate->num_rows > 0) {
                             while ($row = $resultupdate->fetch_assoc()) {
-                                echo "<option value='" . $row["ID"] . "' data-naam='" . $row["Naam"] . "' data-beschrijving='" . $row["Beschrijving"] . "' data-datum='" . $row["Datum"] . "' " . "data-link='" . $row['link'] . "'>" . $row["Naam"] . "</option>";
+                                echo "<option value='" . $row["ID"] . "' data-naam='" . $row["Naam"] . "' data-beschrijving='" . $row["Beschrijving"] . "' data-datum='" . $row["Datum"] . "' " . "data-link='" . $row['link'] . "'data-techniek='" . $row['Technieken'] . "'>" . $row["Naam"] . "</option>";
                             }
                         }
                         ?>
@@ -192,9 +191,6 @@ $resultupdate = $con->query($selectupdate);
             </div>
         </section>
     </main>
-    <footer class="githublink">
-        <a class="github" href="https://github.com/Maddox1122" target="_blank">GitHub</a>
-    </footer>
 </body>
 <script>
     function populateFields() {
@@ -204,24 +200,31 @@ $resultupdate = $con->query($selectupdate);
         let beschrijvingField = document.getElementById("beschrijvingField");
         let datumField = document.getElementById("datumField");
         let linkField = document.getElementById("linkField");
+        let techniekField = document.getElementById("techniekField");
 
         if (selectedOption) {
             let naam = selectedOption.getAttribute("data-naam");
             let beschrijving = selectedOption.getAttribute("data-beschrijving");
             let datum = selectedOption.getAttribute("data-datum");
             let link = selectedOption.getAttribute("data-link");
+            let techniek = selectedOption.getAttribute("data-techniek");
 
             naamField.value = naam;
             beschrijvingField.value = beschrijving;
             datumField.value = datum;
             linkField.value = link;
+            techniekField.value = techniek;
         } else {
             naamField.value = "";
             beschrijvingField.value = "";
             datumField.value = "";
             linkField.value = "";
+            techniekField.value = "";
         }
     }
+</script>
+<script>
+    document.body.classList.add('slide-in');
 </script>
 
 </html>
