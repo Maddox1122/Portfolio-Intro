@@ -1,7 +1,7 @@
 <?php
 require("../require/require.php");
 if ($_SESSION['login'] == false) {
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 
 //INSERT
@@ -142,7 +142,7 @@ $resultupdate = $con->query($selectupdate);
             <div class="form-container">
                 <h3>Verwijder een project</h3>
                 <form method="post" enctype="multipart/form-data">
-                    <label for="delete">Selecteer een project om te verwijderen:</label>
+                    <label for="delete">Selecteer a project to delete:</label>
                     <select name="delete">
                         <?php
                         if ($result->num_rows > 0) {
@@ -160,7 +160,7 @@ $resultupdate = $con->query($selectupdate);
                 <h3>Update a project</h3>
                 <form method="post" enctype="multipart/form-data">
                     <label for="update">Select row to update</label>
-                    <select name="update" onchange="populateFields()">
+                    <select name="update" onchange="DataNeerZetten()">
                         <option value="">Select a project</option>
                         <?php
                         if ($resultupdate->num_rows > 0) {
@@ -193,7 +193,7 @@ $resultupdate = $con->query($selectupdate);
     </main>
 </body>
 <script>
-    function populateFields() {
+    function DataNeerZetten() {
         let select = document.getElementsByName("update")[0];
         let selectedOption = select.options[select.selectedIndex];
         let naamField = document.getElementById("naamField");
